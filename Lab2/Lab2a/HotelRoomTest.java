@@ -1,7 +1,7 @@
-package Lab2;
+package Lab2.Lab2a;
 
 // Answer to questions 1, 2, 3 and 4 in lab 2;
-public class Driver {
+public class HotelRoomTest {
     public static void main(String[] args) {
 
         //Initializes the attributes of the HotelRoom instance;

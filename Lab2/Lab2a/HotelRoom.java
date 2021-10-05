@@ -1,4 +1,4 @@
-package Lab2;
+package Lab2.Lab2a;
 
 public class HotelRoom {
 
