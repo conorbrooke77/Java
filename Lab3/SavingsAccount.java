@@ -16,7 +16,7 @@ public class SavingsAccount {
     }
 
     public void calculateMonthlyInterest() {
-        savingsBalance += (double)Math.round(((savingsBalance * annualInterestRate)/12) * 100)/100; // Rounding to the second decimal place;
+        savingsBalance += (double)Math.round(((savingsBalance * annualInterestRate)/12) * 100)/100; // Rounding to the second decimal place e.g the nearest cents;
     }
 
     public static void modifyMonthlyInterestRate(double annualInterestRate) {
