@@ -4,15 +4,17 @@ public class Employee {
     private static int employeeRecords = 1000;
 
     private Address address;
-    private int employeeNumber;
-    private String name;
-    private int age;
-    private String type;
     private Car companyCar = null;
+    private String name;
+    private String type;
+    private int employeeNumber;
+    private int age;
 
-    public Employee(Address address, String name, int age, String type) {
+    public Employee(Address address, String name, int age, String type) {;
         this.address = address;
         this.employeeNumber = employeeRecords;
+        ++employeeRecords;
+
         setAddress(address);
         setname(name);
         setAge(age);
@@ -46,7 +48,7 @@ public class Employee {
             return companyCar;
         } catch (NullPointerException e) {
             System.out.println("Only Mangers have access to company cars!");
-            return companyCar;
+            return null;
         }
     }
 
@@ -59,8 +61,6 @@ public class Employee {
 
         if (type.equals("Manager")) {
             companyCar = new Car("Focus", "Ford", "Blue");
-        } else {
-            System.out.println("You have to be Manager to own a company car!");
         }
     }
 
@@ -74,7 +74,12 @@ public class Employee {
 
     public String toString() {
         String temp = "";
+        temp += "\nEmployee " + getEmployeeNumber() + "\n";
+        temp += "\nEmployee Name: " + getName() + "\nEmployee Age: " + getAge() + "\nEmployee Type: " + getType() + "\n" + getAddress().toString() + "\n";
 
+        if (type.equals("Manager")) {
+            temp += getCar().toString();
+        }
         return temp;
     }
 }

@@ -12,7 +12,7 @@ public class Address { //Stores information about an address;
     }
 
     public String toString() {
-        return "\n" + "The Address" + "\n" + "Street: " + getStreet() + "\n" + "City: " + city + "\n" + "County: " + "\n";
+        return "\n" + "The Address" + "\n" + "Street: " + getStreet() + "\n" + "City: " + getCity() + "\n" + "County: " + getCounty() + "\n";
     }
 
     public void setStreet(String street) {
