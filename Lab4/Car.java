@@ -22,6 +22,6 @@ public class Car {
     }
 
     public String toString() {
-        return "\n" + "Car type: " + type + "\n" + "Car brand: " + brand + "\n" + "Car colour:" + colour + "\n";
+        return "\n" + "Car type: " + getType() + "\n" + "Car brand: " + getBrand() + "\n" + "Car colour:" + getColour() + "\n";
     }
 }

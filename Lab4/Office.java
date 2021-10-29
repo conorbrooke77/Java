@@ -1,34 +1,45 @@
 package Lab4;
 
 public class Office {
-    private static int nextRoomNumber = 100;
+    private static int roomNumberRecords = 100;
     private final int OFFICECAPACITY = 2;
 
     private int roomNumber;
+    private int currentNoEmployeesInOffice;
     private Employee[] employeesInOffice = new Employee[2];
 
     public Office() {
-        this.roomNumber = nextRoomNumber;
-        nextRoomNumber++;
+        this.roomNumber = roomNumberRecords;
+        roomNumberRecords++;
     }
 
     public void assignEmployee(Employee employee) {
-        if (employeesInOffice.length < OFFICECAPACITY) {
-            employeesInOffice[employeesInOffice.length-1] = employee;
+        if (currentNoEmployeesInOffice < OFFICECAPACITY) {
+            employeesInOffice[currentNoEmployeesInOffice] = employee;
+            currentNoEmployeesInOffice++;
         }
     }
 
     public int getNumberOfEmployeesAssigned() {
-        return employeesInOffice.length;
+        return currentNoEmployeesInOffice;
     }
-    public static int getnextRoomNumber() {
-        return nextRoomNumber;
+    public Employee getRecordOfEmployeeAssigned(int employeeIndex) {
+        return employeesInOffice[employeeIndex];
     }
+    public static int getTotalRooms() {
+        return roomNumberRecords;
+    } 
     public int getRoomNumber() {
         return roomNumber;
     }
 
     public String toString() {
-        return "";
+        String temp = "\nOffice " + getRoomNumber() + "\n" + "\nNumber of Employees in office: " + getNumberOfEmployeesAssigned() + "\n\n" + "Employees Assigned ";
+
+        for (int i=0; i <getNumberOfEmployeesAssigned(); i++) {
+            temp += "\nEmployee Name: " + employeesInOffice[i].getName();
+            temp += "\nEmployee Number: " + employeesInOffice[i].getEmployeeNumber();
+        }
+        return temp + "\n";
     }
 }

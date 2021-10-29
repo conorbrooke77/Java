@@ -1,40 +1,14 @@
 package Lab4;
-
 import java.util.Scanner;
 
-public class MyHR {
+public class MyHr {
+    
     private Scanner sc = new Scanner(System.in);
     private Office[] offices = new Office[3];
     private Employee[] employees = new Employee[5];
 
-    public void createEmployees() {
-
-        for (int noOfEmployees = 0; noOfEmployees < employees.length; noOfEmployees++) {
-
-            System.out.println("\nNew Employee Form\n");
-
-            /* Personal Details */
-            System.out.println("Enter Name: ");
-            String name = sc.nextLine();
-            System.out.println("Enter Age: ");
-            int age = Integer.parseInt(sc.nextLine());
-            System.out.println("Staff Type\n Manager or Staff");
-            String type = sc.nextLine();
-
-            /* Address Details */
-            System.out.println("Enter Employees Street: ");
-            String street = sc.nextLine();
-            System.out.println("Enter Employees City: ");
-            String city = sc.nextLine();
-            System.out.println("Enter Employees County: ");
-            String county = sc.nextLine();
-
-            /* Creating the instances */
-            Address address = new Address(street, city, county);
-            Employee employee = new Employee(address, name, age, type);
-
-            employees[noOfEmployees] = employee;
-        }
+    public MyHr() {
+        createOffices();
     }
 
     public void createOffices() {
@@ -45,30 +19,54 @@ public class MyHR {
         }
     }
 
-    public void assignEmployeesToOffice() {
-        int officesAvialable = 3;
-        for (int employeesAssigned = 0; employeesAssigned < employees.length; employeesAssigned++) {
-            if (offices[officesAvialable-1].getNumberOfEmployeesAssigned() < 2) {
-                offices[officesAvialable-1].assignEmployee(employees[employeesAssigned]);
+    public void createEmployees() {
 
-                if (offices[officesAvialable-1].getNumberOfEmployeesAssigned() == 2) {
-                    officesAvialable--;
+        for (int noOfEmployees = 0; noOfEmployees < employees.length; noOfEmployees++) {
+            /* Personal Details */
+            System.out.println("\nNew Employee Form \nEnter Name: ");
+            String name = sc.nextLine();
+            System.out.println("\nEnter Age: ");
+            int age = Integer.parseInt(sc.nextLine());
+            System.out.println("\nStaff Type\nManager or Staff");
+            String type = sc.nextLine();
+
+            /* Address Details */
+            System.out.println("\nAddress Details \n\nEnter Employees Street: ");
+            String street = sc.nextLine();
+            System.out.println("\nEnter Employees City: ");
+            String city = sc.nextLine();
+            System.out.println("\nEnter Employees County: ");
+            String county = sc.nextLine();
+
+            /* Creating the instances */
+            Address address = new Address(street, city, county);
+            Employee employee = new Employee(address, name, age, type);
+            employees[noOfEmployees] = employee;
+        }
+    }
+
+    public void assignEmployeesToOffice() {
+        int officesUsed = 0;
+        for (int employeesAssigned = 0; employeesAssigned < employees.length; employeesAssigned++) {
+            if (offices[officesUsed].getNumberOfEmployeesAssigned() < 2) {
+                offices[officesUsed].assignEmployee(employees[employeesAssigned]);
+
+                if (offices[officesUsed].getNumberOfEmployeesAssigned() == 2) {
+                    officesUsed++;
                 }
             }
         }
     }
 
-    public String toString() {
-        String temp = "";
+    public String toString() { // Lists all Employees, lists all offices and which employees are assigned to each office.
+        String temp ="MyHr\n";
 
         for (int i = 0; i < employees.length; i++) {
             temp += employees[i].toString();
         }
-
         for (int i = 0; i < offices.length; i++) {
-
+            temp += offices[i].toString();
         }
-
         return temp;
     }
 }

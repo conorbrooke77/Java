@@ -11,10 +11,6 @@ public class Address { //Stores information about an address;
         setCounty(county);
     }
 
-    public String toString() {
-        return "\n" + "The Address" + "\n" + "Street: " + getStreet() + "\n" + "City: " + getCity() + "\n" + "County: " + getCounty() + "\n";
-    }
-
     public void setStreet(String street) {
         this.street = street;
     }
@@ -32,5 +28,9 @@ public class Address { //Stores information about an address;
     }
     public String getCounty() {
         return county;
+    }
+
+    public String toString() {
+        return "\n" + "The Address" + "\n" + "Street: " + getStreet() + "\n" + "City: " + getCity() + "\n" + "County: " + getCounty() + "\n";
     }
 }

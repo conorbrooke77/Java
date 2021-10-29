@@ -2,12 +2,11 @@ package Lab4;
 
 public class MyHrDriver {
     public static void main(String[] args) {
-        MyHR myHR = new MyHR();
+        MyHr MyHr = new MyHr();
 
-        myHR.createEmployees();
-        myHR.createOffices();
-        myHR.assignEmployeesToOffice();
+        MyHr.createEmployees();
+        MyHr.assignEmployeesToOffice();
 
-        
+        System.out.println("\n\n"+MyHr.toString()+"\n");
     }
 }

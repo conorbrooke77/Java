@@ -1,24 +1,24 @@
 package Lab4;
 
 public class Employee {
+
     private static int employeeRecords = 1000;
+    private Car companyCar = null;
 
     private Address address;
-    private Car companyCar = null;
     private String name;
     private String type;
     private int employeeNumber;
     private int age;
 
-    public Employee(Address address, String name, int age, String type) {;
-        this.address = address;
+    public Employee(Address address, String name, int age, String type) {
         this.employeeNumber = employeeRecords;
         ++employeeRecords;
 
-        setAddress(address);
         setname(name);
         setAge(age);
         setType(type);
+        setAddress(address);
     }
 
     public static int getNoOfEmployees() {
@@ -43,12 +43,19 @@ public class Employee {
     public int getEmployeeNumber() {
         return employeeNumber;
     }
+
     public Car getCar() {
         try {
             return companyCar;
         } catch (NullPointerException e) {
             System.out.println("Only Mangers have access to company cars!");
-            return null;
+        }
+        return companyCar;
+    }
+    
+    public void setCar() {
+        if (type.equals("Manager")) {
+            companyCar = new Car("Focus", "Ford", "Blue");
         }
     }
 
@@ -58,10 +65,6 @@ public class Employee {
 
     public void setType(String type) {
         this.type = type;
-
-        if (type.equals("Manager")) {
-            companyCar = new Car("Focus", "Ford", "Blue");
-        }
     }
 
     public void setAge(int age) {
@@ -75,7 +78,7 @@ public class Employee {
     public String toString() {
         String temp = "";
         temp += "\nEmployee " + getEmployeeNumber() + "\n";
-        temp += "\nEmployee Name: " + getName() + "\nEmployee Age: " + getAge() + "\nEmployee Type: " + getType() + "\n" + getAddress().toString() + "\n";
+        temp += "\nEmployee Name: " + getName() + "\nEmployee Age: " + getAge() + "\nEmployee Type: " + getType() + "\n" + getAddress().toString();
 
         if (type.equals("Manager")) {
             temp += getCar().toString();
