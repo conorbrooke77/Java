@@ -5,7 +5,7 @@ public class MyHr {
     
     private Scanner sc = new Scanner(System.in);
     private Office[] offices = new Office[3];
-    private Employee[] employees = new Employee[5];
+    private Employee[] employees = new Employee[2];
 
     public MyHr() {
         createOffices();
@@ -41,6 +41,8 @@ public class MyHr {
             /* Creating the instances */
             Address address = new Address(street, city, county);
             Employee employee = new Employee(address, name, age, type);
+            employee.setCar();
+
             employees[noOfEmployees] = employee;
         }
     }
