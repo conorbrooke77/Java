@@ -1,3 +1,5 @@
+package Lab5;
+
 public class Point {
     protected int x;
     protected int y;
