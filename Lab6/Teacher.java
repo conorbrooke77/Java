@@ -28,21 +28,30 @@ public class Teacher extends Person {
     }
 
     public boolean removeCourse(String course) {
+
         for (int i = 0; i < numCourses; i++) {
-            if (courses[i] == course) {
-                courses[i] = " ";
+            if (courses[i] == course) { //Finds the course in courses array
+                courses[i] = ""; //Changes course to empty string;
             }
         }
-        
         for (int i = 0; i < numCourses; i++) {
             for (int j = 0; j < numCourses; j++) {
-                if (courses[i].compareTo(courses[j]) > 1) {
-
+                if (courses[i].compareTo(courses[j]) > 0) {
+                    System.out.println(courses[j]);
+                    String temp = courses[i];
+                    courses[i] = courses[j];
+                    courses[j] = temp;
                 }
             }
         }
-        return false;
 
+        if (numCourses == 0 || courses[numCourses-1] != "") {
+            return false;
+        } else {
+            courses[numCourses-1] = null; // Changes the empty String at the end of the array to null;
+            numCourses--; //The course is then removed fromthe total;
 
+            return true;
+        }
     }
 }

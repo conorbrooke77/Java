@@ -24,7 +24,8 @@ public class Test {
 	            System.out.println(course + " cannot be added.");
 	         }
 	      }
-	      /*for (String course: courses) 			//Note that removeCourse returns a boolena to indicate success or not.
+
+	      for (String course: courses) 			//Note that removeCourse returns a boolena to indicate success or not.
 	      {
 	         if (t1.removeCourse(course)) 
 	         {
@@ -35,6 +36,5 @@ public class Test {
 	            System.out.println(course + " cannot be removed.");
 	         }
 	      }
-		  */
 	   }
 	}
