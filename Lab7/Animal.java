@@ -3,9 +3,9 @@ package Lab7;
 public abstract class Animal {
     protected String type;
     protected int age;
-    protected String gender;
+    protected char gender;
 
-    public Animal(String type, int age, String gender) {
+    public Animal(String type, int age, char gender) {
         setAge(age);
         setGender(gender);
         setType(type);
@@ -35,12 +35,22 @@ public abstract class Animal {
         this.age = age;
     }
 
-    public void setGender(String gender) {
-
-        if (gender.toLowerCase().equals("male") || gender.toLowerCase().equals("female")) {
-            this.gender = gender;
-        } else {
-            System.out.println("The gender type is invalid!");
+    public void setGender(char gender) {
+        switch (gender) {
+            case 'm': 
+                this.gender = gender;
+                break;
+            case 'f':
+                this.gender = gender;
+                break;
+            case 'M': 
+                this.gender = gender;
+                break;
+            case 'F':
+                this.gender = gender;
+                break;
+            default: 
+                System.out.println("The gender type is invalid!");
         }
     }
 
@@ -52,7 +62,7 @@ public abstract class Animal {
         return age;
     }
 
-    public String getGender() {
+    public char getGender() {
         return gender;
     }
 }
