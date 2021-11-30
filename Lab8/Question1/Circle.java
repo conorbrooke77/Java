@@ -1,4 +1,4 @@
-package Lab8;
+package Lab8.Question1;
 
 public class Circle extends TwoDShape {
     private double radius;

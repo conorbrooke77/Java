@@ -1,4 +1,4 @@
-package Lab8;
+package Lab8.Question1;
 
 public class Driver
 {
@@ -10,6 +10,7 @@ public class Driver
   		Rectangle	rectangle = new Rectangle("Rectangle One", "Yellow", 15.0, 20.0);
   		Cylinder	cylinder = new Cylinder("Cylinder One", "Green", 6, 8);
   		Sphere		sphere = new Sphere("Sphere One", "Blue", 10);
+		Triangle 	triangle = new Triangle("Best Triangle", "Green", 10, 15);
   		
   		//print them using references of the objects type
   		System.out.println("\n---Using circle reference" + circle.toString());
@@ -32,6 +33,10 @@ public class Driver
   		shape = rectangle;
   		System.out.println("\n---Using shape superclass reference for a rectangle " + shape.toString());
   		System.out.println("Rectangle area = " + shape.area()); //polymorphic call using superclass reference
+
+		shape = triangle;
+  		System.out.println("\n---Using shape superclass reference for a Traingle " + shape.toString());
+  		System.out.println("Traingle area = " + shape.area()); //polymorphic call using superclass reference
   		
   		shape = cylinder;
   		System.out.println("\n---Using shape superclass reference for a cylinder " + shape.toString());
