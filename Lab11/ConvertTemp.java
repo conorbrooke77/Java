@@ -1,3 +1,5 @@
+package Lab11;
+
 //Converts a Fahrenheit temperature entered by the user to Celsius, or vice versa
 
 import java.awt.GridLayout;
